@@ -512,12 +512,12 @@ async function mail(restaurant_name, to) {
         host: "smtp.mailgun.org",
         port: 587,
         auth: {
-            user: "h@mail.rakibul-islam.me",
-            pass: "24c5847f9b78c2f0ceebcd6e2554fa03-4b98b89f-4d7d498a",
+            user: process.env.AUTH_MAIL,
+            pass: process.env.AUTH_PASSWORD,
         },
     });
     let info = await transporter.sendMail({
-        from: 'h@mail.rakibul-islam.me',
+        from: process.env.AUTH_EMAIL_FROM,
         to: to,
         subject: "Welcome to Hungry Bunny As a Restaurant",
         html: html,
